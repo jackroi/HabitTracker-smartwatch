@@ -7,7 +7,8 @@ import io.socket.client.Socket;
 
 public class HabitSocketApplication {
 
-    private static final String HABIT_SERVER_URL = "http://192.168.1.136:8000";
+    private static final String HABIT_SERVER_URL = "https://rosin-habit-tracker.herokuapp.com:443";
+    // private static final String HABIT_SERVER_URL = "http://192.168.1.136:8000";
 
     private Socket socket;
 
