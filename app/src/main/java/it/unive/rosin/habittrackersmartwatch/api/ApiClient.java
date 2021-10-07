@@ -14,9 +14,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiClient {
 
     @NonNull
-    private static final String BASE_URL = "https://rosin-habit-tracker.herokuapp.com:443/v0.0.1/";
-    // private static final String BASE_URL = "http://192.168.1.14:8000/v0.0.1/";
-    // private static final String BASE_URL = "http://192.168.1.136:8000/v0.0.1/";
+    private static final String BASE_URL = "https://rosin-habit-tracker.herokuapp.com:443/v1.0.0/";
+    // private static final String BASE_URL = "http://192.168.1.14:8000/v1.0.0/";
+    // private static final String BASE_URL = "http://192.168.1.136:8000/v1.0.0/";
 
     @NonNull
     private Retrofit retrofit;
