@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -99,9 +100,12 @@ public class HabitActivity extends Activity {
             @Override
             public void onResponse(Call<GetHabitsForDateResponseBody> call, Response<GetHabitsForDateResponseBody> response) {
                 if (response.isSuccessful()) {
+                    Log.i(TAG, "Habits fetched correctly");
+
                     List<HabitWithState> habitWithStates = response.body().getHabits();
                     List<HabitButton> habitButtonList = habitWithStates.stream()
                             .map(habitWithState -> new HabitButton(habitWithState.getId(), habitWithState.getName(), habitWithState.getState()))
+                            .sorted(Comparator.comparing(HabitButton::getName))
                             .collect(Collectors.toList());
 
                     habitAdapter.updateHabitButtonList(habitButtonList);
@@ -111,6 +115,7 @@ public class HabitActivity extends Activity {
             @Override
             public void onFailure(Call<GetHabitsForDateResponseBody> call, Throwable t) {
                 // show error message to user
+                Log.e(TAG, "Something went wrong while fetching habits");
             }
         });
     }
